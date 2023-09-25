@@ -32,12 +32,13 @@ module.exports = app => {
                 userAccount.lastAuthentication = Date.now();
                 await userAccount.save();
                 
-                console.log("retrieving ")
+                console.log("Retrieving account ")
                 res.send(userAccount);
                 return;
             }
         }
 
-        res.send('hello');
+        res.send("Invalid credentials");
+        return;
     });
 }

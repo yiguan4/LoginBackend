@@ -2,7 +2,7 @@ const express = require('express');
 const keys = require('./config/keys.js');
 
 const app = express();
-
+ 
 //Connect to DB
 const moogoose = require('mongoose');
 moogoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
