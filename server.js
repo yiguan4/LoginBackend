@@ -1,6 +1,10 @@
 const express = require('express');
+const keys = require('./config/keys.js');
 
 const app = express();
+
+const moogoose = require('mongoose');
+moogoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Routes
 app.get('/auth', async (req, res) => {
@@ -9,6 +13,6 @@ app.get('/auth', async (req, res) => {
 });
 
 const port = 1234;
-app.listen(port, () => {
-    console.log("Listening on " + port);
+app.listen(keys.port, () => {
+    console.log("Listening on " + keys.port);
 });
