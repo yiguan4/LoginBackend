@@ -4,8 +4,8 @@ const Account = moogoose.model('accounts');
 module.exports = app => {
 
     // Routes
-    app.get('/account', async (req, res) => {
-        const { cUsername, cPassword } = req.query;
+    app.post('/account', async (req, res) => {
+        const { cUsername, cPassword } = req.body;
 
         if(cUsername == null || cPassword == null){
             res.send("Invalid credentials");
