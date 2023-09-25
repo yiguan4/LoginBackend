@@ -29,8 +29,8 @@ module.exports = app => {
     });
 
 
-    app.post('/account/create', async (req, res) => {
-        const { cUsername, cPassword } = req.body;
+    app.post('/account/register', async (req, res) => {
+        const { first, last, cEmail, cUsername, cPassword } = req.body;
 
         if(cUsername == null || cPassword == null){
             res.send("Invalid credentials");
@@ -39,9 +39,12 @@ module.exports = app => {
 
         var userAccount = await Account.findOne({ username : cUsername});
         if(userAccount == null){
-            console.log("Create new account");
+            console.log("Registering new account");
 
             var newAccount = new Account({
+                firstname: first,
+                lastname: last,
+                email: cEmail,
                 username : cUsername,
                 password : cPassword,
 
