@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const movieSchema = new Schema({
     moviename: String,
-    parentsGuide: String,
-    length: String,
-    info: String,
+    //parentsGuide: String,
+    //length: String,
+    //info: String,
 
 });
 
