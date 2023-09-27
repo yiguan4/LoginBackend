@@ -12,9 +12,11 @@ moogoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true
 
 //DB models
 require('./model/Account');
+require('./model/Movie');
 
 //Routes
 require('./routes/authenticationRoutes')(app);
+require('./routes/movieRoutes')(app);
 
 
 const port = 1234;

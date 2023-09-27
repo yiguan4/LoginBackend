@@ -2,7 +2,7 @@ const moogoose = require('mongoose');
 const Account = moogoose.model('accounts');
 
 module.exports = app => {
-    
+
     //Testing purpose
     app.get('/auth', async(req, res) => {
         const {cUsername, cPassword} = req.query;
@@ -24,7 +24,6 @@ module.exports = app => {
 
         res.send("Invalid credentials");
         return;
-
 
     });
 
@@ -57,11 +56,6 @@ module.exports = app => {
     app.post('/account/register', async (req, res) => {
         const { first, last, cEmail, cUsername, cPassword } = req.body;
 
-        if(cUsername == null || cPassword == null){
-            res.send("Invalid credentials");
-            return;
-        }
-
         var userAccount = await Account.findOne({ username : cUsername});
         if(userAccount == null){
             console.log("Registering new account");
@@ -84,7 +78,6 @@ module.exports = app => {
             res.send("Username is already taken");
         }
 
-        res.send("Invalid credentials");
         return;
     });
 }
